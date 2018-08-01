@@ -1,3 +1,4 @@
+"""
 # example of a line plot
 from numpy import sin
 from matplotlib import pyplot
@@ -9,45 +10,48 @@ y = sin(x)
 pyplot.plot(x, y)
 #show line plot
 pyplot.show()
-
+"""
 
 # example 1 of a bar chart - con error
-'''
+
 from random import seed
 from random import randint
 from matplotlib import pyplot
+import numpy as np
 # seed the random number generator
 seed(1)
 # names for categories
-x = ['red', 'green', 'blue']
+#x = ['red', 'green', 'blue'] Esta linea me genera error, dice no concatenar float con str
+x = np.arange(0,3)
 # quantities for each category
 y = [randint(0, 100), randint(0, 100), randint(0, 100)]
 # create bar chart
 pyplot.bar(x,y)
+"""
+bar(x, height, *, align='center', **kwargs)
+bar(x, height, width, *, align='center', **kwargs)
+bar(x, height, width, bottom, *, align='center', **kwargs)
+"""
 # show line plot
 pyplot.show()
-'''
 
+"""
 # Ejemplo 2 de Bar Chart
 import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 def get_memory(t):
     "Simulate a function that returns system memory"
     return 100 * (0.5 + 0.5 * np.sin(0.5 * np.pi * t))
-
 
 def get_cpu(t):
     "Simulate a function that returns cpu usage"
     return 100 * (0.5 + 0.5 * np.sin(0.2 * np.pi * (t - 0.25)))
 
-
 def get_net(t):
     "Simulate a function that returns network bandwidth"
     return 100 * (0.5 + 0.5 * np.sin(0.7 * np.pi * (t - 0.1)))
-
 
 def get_stats(t):
     return get_memory(t), get_cpu(t), get_net(t)
@@ -57,7 +61,6 @@ ind = np.arange(1, 4)
 
 # show the figure, but do not block
 plt.show(block=False)
-
 
 pm, pc, pn = plt.bar(ind, get_stats(0))
 pm.set_facecolor('r')
@@ -94,3 +97,4 @@ for i in range(200):  # run for a little while
 
 stop = time.time()
 print("{fps:.1f} frames per second".format(fps=200 / (stop - start)))
+"""
