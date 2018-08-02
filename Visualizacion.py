@@ -14,8 +14,8 @@ pyplot.show()
 
 # example 1 of a bar chart - con error
 
-from random import seed
-from random import randint
+from numpy.random import seed
+from numpy.random import randint
 from matplotlib import pyplot
 import numpy as np
 # seed the random number generator
@@ -98,3 +98,45 @@ for i in range(200):  # run for a little while
 stop = time.time()
 print("{fps:.1f} frames per second".format(fps=200 / (stop - start)))
 """
+
+
+# example of a histogram plot
+from numpy.random import seed
+from numpy.random import randn
+from matplotlib import pyplot
+# seed the random number generator
+seed(1)
+# random numbers drawn from a Gaussian distribution
+x = randn(1000)
+# create histogram plot
+pyplot.hist(x, bins=100)
+# show line plot
+pyplot.show()
+
+# example of a box and whisker plot
+from numpy.random import seed
+from numpy.random import randn
+from matplotlib import pyplot
+# seed the random number generator
+seed(1)
+# random numbers drawn from a Gaussian distribution
+x = [randn(1000), 5 * randn(1000), 10 * randn(1000)]
+# create box and whisker plot
+pyplot.boxplot(x)
+# show line plot
+pyplot.show()
+
+# example of a scatter plot
+from numpy.random import seed
+from numpy.random import randn
+from matplotlib import pyplot
+# seed the random number generator
+seed(1)
+# first variable
+x = 20 * randn(1000) + 100
+# second variable
+y = x + (10 * randn(1000) + 50)
+# create scatter plot
+pyplot.scatter(x, y)
+# show line plot
+pyplot.show()
